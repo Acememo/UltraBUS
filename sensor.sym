@@ -1,0 +1,93 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+008     PSP_DATA
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+020     @TRIS_C
+021-022 main.Ts
+023-024 main.Tf
+025-026 main.Ttotal
+027-028 main.time
+029-02C main.d
+02D-030 @MULFF.P1
+02D     @delay_ms1.P2
+02D-02E @ITOF.P3
+02D     main.@SCRATCH1
+02E     main.@SCRATCH2
+02F-030 @DIV1616.P1
+02F     main.@SCRATCH3
+030     main.@SCRATCH4
+031-032 @DIV1616.P1
+031-034 @DIVFF.P2
+031-034 @MULFF.P3
+033     @DIV1616.@SCRATCH1
+035-038 @DIVFF.P1
+035     @MULFF.@SCRATCH1
+036     @MULFF.@SCRATCH2
+037     @MULFF.@SCRATCH3
+038     @MULFF.@SCRATCH4
+039     @MULFF.@SCRATCH5
+039     @DIVFF.@SCRATCH1
+03A     @DIVFF.@SCRATCH2
+03B     @DIVFF.@SCRATCH3
+03C     @DIVFF.@SCRATCH4
+03D     @DIVFF.@SCRATCH5
+03E     @DIVFF.@SCRATCH6
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+09C.6   C1OUT
+09C.7   C2OUT
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  @delay_ms1
+000019  @GET_CAPTURE_TIME_1
+000021  @GET_CAPTURE_TIME_2
+000029  @DIV1616
+000050  @ITOF
+00006F  @MULFF
+0000E6  @DIVFF
+0001B2  @cinit1
+0001B2  main
+0001CE  @cinit2
+
+Project Directory:
+    C:\Users\Memo\Documents\ice\6to\expo ing 19\
+
+Project Files:
+    sensor.c                                                [01-May-19 19:15  CRC=DEA5EFEF]
+    sensor.h                                                [01-May-19 19:02  CRC=CF12E969]
+    ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h [03-Jul-13 15:28  CRC=4E65664C]
+
+Source signature=4A83A5F0
+
+Units:
+    sensor (main)
+
+Compiler Settings:
+    Processor:      PIC16F877A
+    Pointer Size:   16
+    ADC Range:      0-65535
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   sensor.xsym
+    Errors:      sensor.err
+    Ext Symbols: sensor.esym
+    INHX8:       sensor.hex
+    Symbols:     sensor.sym
+    List:        sensor.lst
+    Debug/COFF:  sensor.cof
+    Project:     sensor.ccspjt
+    Call Tree:   sensor.tre
+    Statistics:  sensor.STA

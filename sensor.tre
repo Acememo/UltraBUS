@@ -1,0 +1,11 @@
+읕sensor
+   읕main  0/157  Ram=4
+      쳐@cinit1  (Inline)  Ram=0
+      쳐@delay_ms1  0/21  Ram=1
+      쳐@delay_ms1  0/21  Ram=1
+      쳐@GET_CAPTURE_TIME_1  0/8  Ram=0
+      쳐@GET_CAPTURE_TIME_2  0/8  Ram=0
+      쳐@DIV1616  0/39  Ram=5
+      쳐@ITOF  0/31  Ram=2
+      쳐@MULFF  0/119  Ram=13
+      읕@DIVFF  0/204  Ram=14

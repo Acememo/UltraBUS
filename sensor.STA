@@ -1,0 +1,55 @@
+
+ROM used:   591/8192 (7%)
+            591/8192 (7%) including unused fragments
+
+            0.8 Average locations per line
+            32.8 Average locations per statement
+
+RAM used:   10/368 (3%) at main() level
+            36/368 (10%) worst case
+
+Stack used: 1 worst case (1 in main + 0 for interrupts)
+Stack size: 8
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   32    18 100  sensor.c
+   10     0   0  sensor.h
+  661     0   0  ..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h
+----- -----
+  703    18 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     21   4    1             @delay_ms1
+0    157  27    4   612  4.7  main
+0      8   1    0             @GET_CAPTURE_TIME_1
+0      8   1    0             @GET_CAPTURE_TIME_2
+0     39   7    5             @DIV1616
+0     31   5    2             @ITOF
+0    119  20   13             @MULFF
+0    204  35   14             @DIVFF
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               1
+    Statements              18
+    Comments                110
+    Volume (V)              631
+    Difficulty (D)          4.0
+    Effort to implement (E) 2545
+    Time to implement (T)   2 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   2
+    Maintainability (MI)    64
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00003     4  0  
+00004-007FF   587  1457  
+00800-00FFF     0  2048  
+01000-017FF     0  2048  
+01800-01FFF     0  2048  
+
+
+

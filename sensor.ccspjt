@@ -1,0 +1,24 @@
+[PROJECT]
+Target=sensor.hex
+Processor_Text=PIC16F877A
+CCSVerions=5.008
+Compiler=PCM
+CCSVersion=5.008
+[Target Data]
+FileList=sensor.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\;C:\Users\Memo\Documents\ice\6to\expo ing 19\
+[C:\Users\Memo\Documents\ice\6to\expo ing 19\sensor]
+Type=4
+[mru-list]
+1=sensor.c
+[Opened Files]
+1=sensor.c
+2=..\micro\C Source\Practica 8\practica8.c
+3=sensor.lst
+4=
+[sensor.c]
+Type=4
+[Units]
+Count=1
+1=sensor (main)
