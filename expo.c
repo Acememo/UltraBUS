@@ -1,3 +1,4 @@
+
 #include <expo.h>
 
 void main()
@@ -15,11 +16,13 @@ void main()
    
    WHILE (TRUE)
    {
+   delay_ms(100);
       output_a(j);
-      output_low(pin_e1);
+      
+      output_e(1);
       delay_ms(10);
-      output_high(pin_e1);
-      delay_ms(10);
+      
+      
       
       IF (get_capture_event (CAPTURE1) == 1)
       x = get_capture_time (CAPTURE1) ;
@@ -29,44 +32,50 @@ void main()
          x1 = (get_capture_time (CAPTURE2)  - x);
          distancia= x1*0.017;
       }
-      
+      output_e(0);
      
 
       SWITCH (j)
       {
-         CASE 0: 
-         
-            IF (distancia<50)  {output_high(pin_b0);
-            delay_ms(10);
-            }
-            IF (distancia<100)  {output_high(pin_b0);
-            delay_ms(10);
-            }
-            else output_low(pin_b0);
-         
-         BREAK;
          CASE 1: 
          
-            IF (distancia>100)  {output_high(pin_b1);
+            IF (distancia<50)  {output_b(1);
             delay_ms(10);
             }
-            IF (distancia>50)  {output_high(pin_b1);
+            IF (distancia<100 && distancia>50)  {output_b(2);
             delay_ms(10);
             }
-            else output_low(pin_b1);
+            IF (distancia>100 )  {output_b(0);
+            
+            }
+         
+         BREAK;
+         CASE 0: 
+         
+            IF (distancia>100)  {output_b(4);
+            delay_ms(10);
+            }
+            IF (distancia>50 && distancia<100)  {output_b(8);
+            delay_ms(10);
+            }
+            IF (distancia<50 )  {output_b(0);
+            
+            }
          
          BREAK;
       }
       
       
-      output_low(pin_e1);
-      j=j+1;
-      if(j==2)
+      
+      
+      if(j==1)
          {
             j=0;
          }
-         
-      
+        else j=1;   
+     
+     
       
    }
 }
+
