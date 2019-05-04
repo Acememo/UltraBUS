@@ -16,7 +16,7 @@ void main()
    
    WHILE (TRUE)
    {
-   delay_ms(100);
+   delay_ms(10);
       output_a(j);
       
       output_e(1);
@@ -37,7 +37,7 @@ void main()
 
       SWITCH (j)
       {
-         CASE 1: 
+         CASE 2: 
          
             IF (distancia<50)  {output_b(1);
             delay_ms(10);
@@ -50,7 +50,7 @@ void main()
             }
          
          BREAK;
-         CASE 0: 
+         CASE 1: 
          
             IF (distancia>100)  {output_b(4);
             delay_ms(10);
@@ -78,4 +78,3 @@ void main()
       
    }
 }
-
