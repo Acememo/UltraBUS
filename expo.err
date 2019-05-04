@@ -1,4 +1,4 @@
---- Info 300 "expo.c" Line 5(1,1): More info:   Timer 1 tick is 1 us
-      Memory usage:   ROM=5%      RAM=4% - 7%
+--- Info 300 "expo.c" Line 6(1,1): More info:   Timer 1 tick is 1 us
+      Memory usage:   ROM=6%      RAM=4% - 7%
       0 Errors,  0 Warnings.
 Build Successful.
