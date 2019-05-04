@@ -1,9 +1,9 @@
 
-ROM used:   427/8192 (5%)
-            427/8192 (5%) including unused fragments
+ROM used:   465/8192 (6%)
+            465/8192 (6%) including unused fragments
 
             0.6 Average locations per line
-            10.2 Average locations per statement
+            10.3 Average locations per statement
 
 RAM used:   15/368 (4%) at main() level
             26/368 (7%) worst case
@@ -13,39 +13,39 @@ Stack size: 8
 
 Lines Stmts  %   Files
 ----- ----- ---  -----
-   73    42 100  expo.c
+   82    45 100  expo.c
    10     0   0  expo.h
   661     0   0  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h
 ----- -----
-  744    42 Total
+  753    45 Total
 
 Page ROM  %  RAM   Vol Diff  Functions:
 ---- --- --- ---   --- ----  ----------
 0     21   5    1             @delay_ms1
-0    203  48    9  1307  8.4  main
+0    241  52    9  1408  8.4  main
 0      8   2    0             @GET_CAPTURE_TIME_1
 0      8   2    0             @GET_CAPTURE_TIME_2
 0     31   7    2             @ITOF
-0    119  28   13             @MULFF
-0     33   8    4             @SFTOI
+0    119  26   13             @MULFF
+0     33   7    4             @SFTOI
  Inline         0             @cinit1
 
 Program metrics:
     Functions               1
-    Statements              42
+    Statements              45
     Comments                110
-    Volume (V)              1325
+    Volume (V)              1426
     Difficulty (D)          7.8
-    Effort to implement (E) 10303
+    Effort to implement (E) 11145
     Time to implement (T)   10 minutes
     Est Delivered Bugs (B)  0
-    Cyclomatic Complexity   9
-    Maintainability (MI)    45
+    Cyclomatic Complexity   11
+    Maintainability (MI)    43
 
  Segment     Used  Free
 -----------  ----  ----
 00000-00003     4  0  
-00004-007FF   423  1621  
+00004-007FF   461  1583  
 00800-00FFF     0  2048  
 01000-017FF     0  2048  
 01800-01FFF     0  2048  

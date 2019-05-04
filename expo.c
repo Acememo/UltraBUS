@@ -9,7 +9,7 @@ void main()
    INT16 x=0;
    INT16 distancia=0;
    unsigned INT16 x1=0;
-   CHAR j=0;
+   CHAR j=1;
    set_tris_b (0b00000000) ;
    set_tris_a (0b000000) ;
    set_tris_e (0b000) ;
@@ -68,11 +68,11 @@ void main()
       
       
       
-      if(j==1)
+      if(j==2)
          {
-            j=0;
+            j=1;
          }
-        else j=1;   
+        else j=2;   
      
      
       

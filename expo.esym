@@ -1,7 +1,7 @@
 D G "__PCM__" 0 0 ""5.008""
 D G "__DEVICE__" 0 0 ""
-D G "__DATE__" 0 0 ""02-May-19""
-D G "__TIME__" 0 0 ""18:21:41"" "Standard Header file for the PIC16F877A device ////////////////"
+D G "__DATE__" 0 0 ""03-May-19""
+D G "__TIME__" 0 0 ""18:31:43"" "Standard Header file for the PIC16F877A device ////////////////"
 c L "set_tris_a" 2 5 13 "FUNCTION"
 v L "value" 2 28 "int8" `54 
 f B "set_tris_a" 2 28 "void(int8 value)" `53 
@@ -774,12 +774,12 @@ d G "INT_BUSCOL" 2 655 "0x008D08"
 d G "INT_EEPROM" 2 656 "0x008D10"
 d G "INT_TIMER0" 2 657 "0x000B20"
 d G "INT_COMP" 2 658 "0x008D40"
-F G "main" 0 4 "void()" `619 
-D G "CAPTURES_PER_SECOND" 0 5 "1000000"
-V L "x" 0 8 "int16" `623 
-V L "distancia" 0 9 "int16" `624 
-V L "x1" 0 10 "int16" `625 
-V L "j" 0 11 "int8" `626 
+F G "main" 0 5 "void()" `619 
+D G "CAPTURES_PER_SECOND" 0 6 "1000000"
+V L "x" 0 9 "int16" `623 
+V L "distancia" 0 10 "int16" `624 
+V L "x1" 0 11 "int16" `625 
+V L "j" 0 12 "int8" `626 
 F B "reset_cpu" 0 0
 F B "abs" 1 0
 F B "sleep" 0 0

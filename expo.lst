@@ -1,8 +1,8 @@
-CCS PCM C Compiler, Version 5.008, 5967               02-May-19 18:21
+CCS PCM C Compiler, Version 5.008, 5967               03-May-19 18:31
 
                Filename:   C:\Users\Memo\Documents\ice\6to\expo ing 19\UltraBUS\expo.lst
 
-               ROM used:   427 words (5%)
+               ROM used:   465 words (6%)
                            Largest free fragment is 2048
                RAM used:   15 (4%) at main() level
                            26 (7%) worst case
@@ -14,6 +14,7 @@ CCS PCM C Compiler, Version 5.008, 5967               02-May-19 18:21
 0001:  MOVWF  0A
 0002:  GOTO   0E0
 0003:  NOP
+....................  
 .................... #include <expo.h> 
 .................... #include <16F877A.h> 
 .................... //////// Standard Header file for the PIC16F877A device //////////////// 
@@ -26,7 +27,7 @@ CCS PCM C Compiler, Version 5.008, 5967               02-May-19 18:21
 001D:  BCF    0C.2
 001E:  BCF    0A.3
 001F:  BCF    0A.4
-0020:  GOTO   121 (RETURN)
+0020:  GOTO   123 (RETURN)
 0021:  MOVF   1C,W
 0022:  MOVWF  78
 0023:  MOVF   1B,W
@@ -34,7 +35,7 @@ CCS PCM C Compiler, Version 5.008, 5967               02-May-19 18:21
 0025:  BCF    0D.0
 0026:  BCF    0A.3
 0027:  BCF    0A.4
-0028:  GOTO   128 (RETURN)
+0028:  GOTO   12A (RETURN)
 0029:  MOVLW  8E
 002A:  MOVWF  77
 002B:  MOVF   29,W
@@ -65,7 +66,7 @@ CCS PCM C Compiler, Version 5.008, 5967               02-May-19 18:21
 0044:  BCF    78.7
 0045:  BCF    0A.3
 0046:  BCF    0A.4
-0047:  GOTO   136 (RETURN)
+0047:  GOTO   138 (RETURN)
 0048:  MOVF   28,W
 0049:  BTFSC  03.2
 004A:  GOTO   0B8
@@ -184,7 +185,7 @@ CCS PCM C Compiler, Version 5.008, 5967               02-May-19 18:21
 00BB:  CLRF   7A
 00BC:  BCF    0A.3
 00BD:  BCF    0A.4
-00BE:  GOTO   147 (RETURN)
+00BE:  GOTO   149 (RETURN)
 00BF:  MOVLW  8E
 00C0:  MOVWF  77
 00C1:  MOVF   28,W
@@ -217,7 +218,7 @@ CCS PCM C Compiler, Version 5.008, 5967               02-May-19 18:21
 00DC:  INCF   79,F
 00DD:  BCF    0A.3
 00DE:  BCF    0A.4
-00DF:  GOTO   150 (RETURN)
+00DF:  GOTO   152 (RETURN)
 ....................  
 .................... #list 
 ....................  
@@ -291,7 +292,8 @@ CCS PCM C Compiler, Version 5.008, 5967               02-May-19 18:21
 0101:  CLRF   23
 0102:  CLRF   26
 0103:  CLRF   25
-0104:  CLRF   27
+0104:  MOVLW  01
+0105:  MOVWF  27
 .................... { 
 ....................    #use capture(CCP1, input=PIN_C1, capture_rising, stream=CAPTURE1) 
 ....................    #use capture(CCP2, input=PIN_C2, capture_falling, stream=CAPTURE2) 
@@ -299,234 +301,279 @@ CCS PCM C Compiler, Version 5.008, 5967               02-May-19 18:21
 ....................    INT16 x=0; 
 ....................    INT16 distancia=0; 
 ....................    unsigned INT16 x1=0; 
-....................    CHAR j=0; 
+....................    CHAR j=1; 
 ....................    set_tris_b (0b00000000) ; 
-0105:  MOVLW  00
-0106:  BSF    03.5
-0107:  MOVWF  06
+0106:  MOVLW  00
+0107:  BSF    03.5
+0108:  MOVWF  06
 ....................    set_tris_a (0b000000) ; 
-0108:  MOVWF  05
+0109:  MOVWF  05
 ....................    set_tris_e (0b000) ; 
-0109:  BCF    09.0
-010A:  BCF    09.1
-010B:  BCF    09.2
+010A:  BCF    09.0
+010B:  BCF    09.1
+010C:  BCF    09.2
 ....................     
 ....................    WHILE (TRUE) 
 ....................    { 
+....................    delay_ms(100); 
+010D:  MOVLW  64
+010E:  BCF    03.5
+010F:  MOVWF  28
+0110:  CALL   004
 ....................       output_a(j); 
-010C:  CLRF   05
-010D:  BCF    03.5
-010E:  MOVF   27,W
-010F:  MOVWF  05
-....................       output_low(pin_e1); 
-0110:  BSF    03.5
-0111:  BCF    09.1
-0112:  BCF    03.5
-0113:  BCF    09.1
-....................       delay_ms(10); 
-0114:  MOVLW  0A
-0115:  MOVWF  28
-0116:  CALL   004
-....................       output_high(pin_e1); 
-0117:  BSF    03.5
+0111:  BSF    03.5
+0112:  CLRF   05
+0113:  BCF    03.5
+0114:  MOVF   27,W
+0115:  MOVWF  05
+....................        
+....................       output_e(1); 
+0116:  BSF    03.5
+0117:  BCF    09.0
 0118:  BCF    09.1
-0119:  BCF    03.5
-011A:  BSF    09.1
+0119:  BCF    09.2
+011A:  MOVLW  01
+011B:  BCF    03.5
+011C:  MOVWF  09
 ....................       delay_ms(10); 
-011B:  MOVLW  0A
-011C:  MOVWF  28
-011D:  CALL   004
+011D:  MOVLW  0A
+011E:  MOVWF  28
+011F:  CALL   004
+....................        
+....................        
 ....................        
 ....................       IF (get_capture_event (CAPTURE1) == 1) 
-011E:  BTFSS  0C.2
-011F:  GOTO   125
+0120:  BTFSS  0C.2
+0121:  GOTO   127
 ....................       x = get_capture_time (CAPTURE1) ; 
-0120:  GOTO   019
-0121:  MOVF   78,W
-0122:  MOVWF  22
-0123:  MOVF   77,W
-0124:  MOVWF  21
+0122:  GOTO   019
+0123:  MOVF   78,W
+0124:  MOVWF  22
+0125:  MOVF   77,W
+0126:  MOVWF  21
 ....................  
 ....................       IF (get_capture_event (CAPTURE2) == 1) 
-0125:  BTFSS  0D.0
-0126:  GOTO   154
+0127:  BTFSS  0D.0
+0128:  GOTO   156
 ....................       { 
 ....................          x1 = (get_capture_time (CAPTURE2)  - x); 
-0127:  GOTO   021
-0128:  MOVF   21,W
-0129:  SUBWF  77,W
-012A:  MOVWF  25
-012B:  MOVF   78,W
-012C:  MOVWF  26
-012D:  MOVF   22,W
-012E:  BTFSS  03.0
-012F:  INCFSZ 22,W
-0130:  SUBWF  26,F
+0129:  GOTO   021
+012A:  MOVF   21,W
+012B:  SUBWF  77,W
+012C:  MOVWF  25
+012D:  MOVF   78,W
+012E:  MOVWF  26
+012F:  MOVF   22,W
+0130:  BTFSS  03.0
+0131:  INCFSZ 22,W
+0132:  SUBWF  26,F
 ....................          distancia= x1*0.017; 
-0131:  MOVF   26,W
-0132:  MOVWF  29
-0133:  MOVF   25,W
-0134:  MOVWF  28
-0135:  GOTO   029
-0136:  MOVF   7A,W
-0137:  MOVWF  2B
-0138:  MOVF   79,W
-0139:  MOVWF  2A
-013A:  MOVF   78,W
-013B:  MOVWF  29
-013C:  MOVF   77,W
-013D:  MOVWF  28
-013E:  MOVLW  96
-013F:  MOVWF  2F
-0140:  MOVLW  43
-0141:  MOVWF  2E
-0142:  MOVLW  0B
-0143:  MOVWF  2D
-0144:  MOVLW  79
-0145:  MOVWF  2C
-0146:  GOTO   048
-0147:  MOVF   7A,W
-0148:  MOVWF  2B
-0149:  MOVF   79,W
-014A:  MOVWF  2A
-014B:  MOVF   78,W
-014C:  MOVWF  29
-014D:  MOVF   77,W
-014E:  MOVWF  28
-014F:  GOTO   0BF
-0150:  MOVF   79,W
-0151:  MOVWF  24
-0152:  MOVF   78,W
-0153:  MOVWF  23
+0133:  MOVF   26,W
+0134:  MOVWF  29
+0135:  MOVF   25,W
+0136:  MOVWF  28
+0137:  GOTO   029
+0138:  MOVF   7A,W
+0139:  MOVWF  2B
+013A:  MOVF   79,W
+013B:  MOVWF  2A
+013C:  MOVF   78,W
+013D:  MOVWF  29
+013E:  MOVF   77,W
+013F:  MOVWF  28
+0140:  MOVLW  96
+0141:  MOVWF  2F
+0142:  MOVLW  43
+0143:  MOVWF  2E
+0144:  MOVLW  0B
+0145:  MOVWF  2D
+0146:  MOVLW  79
+0147:  MOVWF  2C
+0148:  GOTO   048
+0149:  MOVF   7A,W
+014A:  MOVWF  2B
+014B:  MOVF   79,W
+014C:  MOVWF  2A
+014D:  MOVF   78,W
+014E:  MOVWF  29
+014F:  MOVF   77,W
+0150:  MOVWF  28
+0151:  GOTO   0BF
+0152:  MOVF   79,W
+0153:  MOVWF  24
+0154:  MOVF   78,W
+0155:  MOVWF  23
 ....................       } 
-....................        
+....................       output_e(0); 
+0156:  BSF    03.5
+0157:  BCF    09.0
+0158:  BCF    09.1
+0159:  BCF    09.2
+015A:  BCF    03.5
+015B:  CLRF   09
 ....................       
 ....................  
 ....................       SWITCH (j) 
-0154:  MOVF   27,W
-0155:  BTFSC  03.2
-0156:  GOTO   15B
-0157:  XORLW  01
-0158:  BTFSC  03.2
-0159:  GOTO   17D
-015A:  GOTO   19E
+015C:  MOVF   27,W
+015D:  XORLW  01
+015E:  BTFSC  03.2
+015F:  GOTO   164
+0160:  XORLW  01
+0161:  BTFSC  03.2
+0162:  GOTO   195
+0163:  GOTO   1C5
 ....................       { 
-....................          CASE 0:  
-....................           
-....................             IF (distancia<50)  {output_high(pin_b0); 
-015B:  MOVF   24,F
-015C:  BTFSS  03.2
-015D:  GOTO   169
-015E:  MOVF   23,W
-015F:  SUBLW  31
-0160:  BTFSS  03.0
-0161:  GOTO   169
-0162:  BSF    03.5
-0163:  BCF    06.0
-0164:  BCF    03.5
-0165:  BSF    06.0
-....................             delay_ms(10); 
-0166:  MOVLW  0A
-0167:  MOVWF  28
-0168:  CALL   004
-....................             } 
-....................             IF (distancia<100)  {output_high(pin_b0); 
-0169:  MOVF   24,F
-016A:  BTFSS  03.2
-016B:  GOTO   178
-016C:  MOVF   23,W
-016D:  SUBLW  63
-016E:  BTFSS  03.0
-016F:  GOTO   178
-0170:  BSF    03.5
-0171:  BCF    06.0
-0172:  BCF    03.5
-0173:  BSF    06.0
-....................             delay_ms(10); 
-0174:  MOVLW  0A
-0175:  MOVWF  28
-0176:  CALL   004
-....................             } 
-0177:  GOTO   17C
-....................             else output_low(pin_b0); 
-0178:  BSF    03.5
-0179:  BCF    06.0
-017A:  BCF    03.5
-017B:  BCF    06.0
-....................           
-....................          BREAK; 
-017C:  GOTO   19E
 ....................          CASE 1:  
 ....................           
-....................             IF (distancia>100)  {output_high(pin_b1); 
-017D:  MOVF   24,F
-017E:  BTFSS  03.2
-017F:  GOTO   184
-0180:  MOVF   23,W
-0181:  SUBLW  64
-0182:  BTFSC  03.0
-0183:  GOTO   18B
-0184:  BSF    03.5
-0185:  BCF    06.1
-0186:  BCF    03.5
-0187:  BSF    06.1
+....................             IF (distancia<50)  {output_b(1); 
+0164:  MOVF   24,F
+0165:  BTFSS  03.2
+0166:  GOTO   173
+0167:  MOVF   23,W
+0168:  SUBLW  31
+0169:  BTFSS  03.0
+016A:  GOTO   173
+016B:  BSF    03.5
+016C:  CLRF   06
+016D:  MOVLW  01
+016E:  BCF    03.5
+016F:  MOVWF  06
 ....................             delay_ms(10); 
-0188:  MOVLW  0A
-0189:  MOVWF  28
-018A:  CALL   004
+0170:  MOVLW  0A
+0171:  MOVWF  28
+0172:  CALL   004
 ....................             } 
-....................             IF (distancia>50)  {output_high(pin_b1); 
-018B:  MOVF   24,F
-018C:  BTFSS  03.2
-018D:  GOTO   192
-018E:  MOVF   23,W
-018F:  SUBLW  32
-0190:  BTFSC  03.0
-0191:  GOTO   19A
-0192:  BSF    03.5
-0193:  BCF    06.1
-0194:  BCF    03.5
-0195:  BSF    06.1
+....................             IF (distancia<100 && distancia>50)  {output_b(2); 
+0173:  MOVF   24,F
+0174:  BTFSS  03.2
+0175:  GOTO   189
+0176:  MOVF   23,W
+0177:  SUBLW  63
+0178:  BTFSS  03.0
+0179:  GOTO   189
+017A:  MOVF   24,F
+017B:  BTFSS  03.2
+017C:  GOTO   181
+017D:  MOVF   23,W
+017E:  SUBLW  32
+017F:  BTFSC  03.0
+0180:  GOTO   189
+0181:  BSF    03.5
+0182:  CLRF   06
+0183:  MOVLW  02
+0184:  BCF    03.5
+0185:  MOVWF  06
 ....................             delay_ms(10); 
-0196:  MOVLW  0A
-0197:  MOVWF  28
-0198:  CALL   004
+0186:  MOVLW  0A
+0187:  MOVWF  28
+0188:  CALL   004
 ....................             } 
-0199:  GOTO   19E
-....................             else output_low(pin_b1); 
-019A:  BSF    03.5
-019B:  BCF    06.1
-019C:  BCF    03.5
-019D:  BCF    06.1
+....................             IF (distancia>100 )  {output_b(0); 
+0189:  MOVF   24,F
+018A:  BTFSS  03.2
+018B:  GOTO   190
+018C:  MOVF   23,W
+018D:  SUBLW  64
+018E:  BTFSC  03.0
+018F:  GOTO   194
+0190:  BSF    03.5
+0191:  CLRF   06
+0192:  BCF    03.5
+0193:  CLRF   06
+....................              
+....................             } 
+....................           
+....................          BREAK; 
+0194:  GOTO   1C5
+....................          CASE 0:  
+....................           
+....................             IF (distancia>100)  {output_b(4); 
+0195:  MOVF   24,F
+0196:  BTFSS  03.2
+0197:  GOTO   19C
+0198:  MOVF   23,W
+0199:  SUBLW  64
+019A:  BTFSC  03.0
+019B:  GOTO   1A4
+019C:  BSF    03.5
+019D:  CLRF   06
+019E:  MOVLW  04
+019F:  BCF    03.5
+01A0:  MOVWF  06
+....................             delay_ms(10); 
+01A1:  MOVLW  0A
+01A2:  MOVWF  28
+01A3:  CALL   004
+....................             } 
+....................             IF (distancia>50 && distancia<100)  {output_b(8); 
+01A4:  MOVF   24,F
+01A5:  BTFSS  03.2
+01A6:  GOTO   1AB
+01A7:  MOVF   23,W
+01A8:  SUBLW  32
+01A9:  BTFSC  03.0
+01AA:  GOTO   1BA
+01AB:  MOVF   24,F
+01AC:  BTFSS  03.2
+01AD:  GOTO   1BA
+01AE:  MOVF   23,W
+01AF:  SUBLW  63
+01B0:  BTFSS  03.0
+01B1:  GOTO   1BA
+01B2:  BSF    03.5
+01B3:  CLRF   06
+01B4:  MOVLW  08
+01B5:  BCF    03.5
+01B6:  MOVWF  06
+....................             delay_ms(10); 
+01B7:  MOVLW  0A
+01B8:  MOVWF  28
+01B9:  CALL   004
+....................             } 
+....................             IF (distancia<50 )  {output_b(0); 
+01BA:  MOVF   24,F
+01BB:  BTFSS  03.2
+01BC:  GOTO   1C5
+01BD:  MOVF   23,W
+01BE:  SUBLW  31
+01BF:  BTFSS  03.0
+01C0:  GOTO   1C5
+01C1:  BSF    03.5
+01C2:  CLRF   06
+01C3:  BCF    03.5
+01C4:  CLRF   06
+....................              
+....................             } 
 ....................           
 ....................          BREAK; 
 ....................       } 
 ....................        
 ....................        
-....................       output_low(pin_e1); 
-019E:  BSF    03.5
-019F:  BCF    09.1
-01A0:  BCF    03.5
-01A1:  BCF    09.1
-....................       j=j+1; 
-01A2:  MOVLW  01
-01A3:  ADDWF  27,F
-....................       if(j==2) 
-01A4:  MOVF   27,W
-01A5:  SUBLW  02
-01A6:  BTFSC  03.2
-....................          { 
-....................             j=0; 
-01A7:  CLRF   27
-....................          } 
-01A8:  BSF    03.5
-01A9:  GOTO   10C
-....................           
 ....................        
+....................        
+....................       if(j==2) 
+01C5:  MOVF   27,W
+01C6:  SUBLW  02
+01C7:  BTFSS  03.2
+01C8:  GOTO   1CC
+....................          { 
+....................             j=1; 
+01C9:  MOVLW  01
+01CA:  MOVWF  27
+....................          } 
+01CB:  GOTO   1CE
+....................         else j=2;    
+01CC:  MOVLW  02
+01CD:  MOVWF  27
+01CE:  BSF    03.5
+01CF:  GOTO   10D
+....................       
+....................       
 ....................        
 ....................    } 
 .................... } 
-01AA:  SLEEP
+....................  
+01D0:  SLEEP
 
 Configuration Fuses:
    Word  1: 3F31   XT NOWDT PUT NOBROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT

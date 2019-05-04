@@ -49,11 +49,11 @@ Project Directory:
     C:\Users\Memo\Documents\ice\6to\expo ing 19\UltraBUS\
 
 Project Files:
-    expo.c                                                  [02-May-19 18:21  CRC=301FADA1]
-    expo.h                                                  [02-May-19 18:21  CRC=CF12E969]
+    expo.c                                                  [03-May-19 18:31  CRC=FCE70FDB]
+    expo.h                                                  [03-May-19 17:45  CRC=CF12E969]
     ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\16F877A.h [03-Jul-13 15:28  CRC=4E65664C]
 
-Source signature=9BFD63A2
+Source signature=68C4C5DC
 
 Units:
     expo (main)
